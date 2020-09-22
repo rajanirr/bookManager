@@ -6,5 +6,5 @@ COPY . .
 RUN npm install
 RUN npm build --prod
 FROM nginx:1.17.1-alpine
-COPY. /usr/share/nginx/html
+COPY --from=node /app/dist/bookManager usr/share/nginx/html
 EXPOSE 5000
